@@ -23,5 +23,4 @@ function DefaultButton({ children, style }) {
         {children}
       </button>
     );
-  }
-    
+  } 
