@@ -19,6 +19,7 @@ export default {
             name:"current",
             title: "Current",
             type: "string",
+            validation: (Rule) => Rule.required(),
             // options: {
             //     source: "title",
             //     max_length: 96,
