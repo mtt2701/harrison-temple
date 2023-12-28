@@ -16,7 +16,16 @@ export function ModeButton({ children, style}) {
     );
   }
 
-export function LinkButton({title, target, style}) {
+export function LinkButton({title, current, target, style}) {
+    if (current==="shi")
+    return (
+      <Link href={`${target}`} passHref>
+      <BadButton style={`md:px-10 px-8 md:py-5 py-4 md:text-2xl text-md w-full h-12 md:h-20 ${style}`}>
+        {title}
+      </BadButton>
+    </Link>
+  )
+  else
     return (
       <Link href={`${target}`} passHref>
           <DefaultButton style={`md:px-10 px-8 md:py-5 py-4 md:text-2xl text-md w-full h-12 md:h-20 ${style}`}>
@@ -30,6 +39,19 @@ function DefaultButton({children, style, click}) {
     return (
       <button
         className={`bg-white border-black text-black md:hover:bg-black md:hover:border-white md:hover:text-white
+        dark:bg-black dark:border-white dark:text-white dark:md:hover:bg-white dark:md:hover:border-black dark:md:hover:text-black
+        inline-flex items-center justify-center font-medium bg-transparent border rounded-2xl transition-colors ${style}`}
+        onClick={click}
+      >
+        {children}
+      </button>
+    );
+  } 
+
+  function BadButton({children, style, click}) {
+    return (
+      <button
+        className={`bg-white border-black text-white md:hover:bg-black md:hover:border-white md:hover:text-black
         dark:bg-black dark:border-white dark:text-white dark:md:hover:bg-white dark:md:hover:border-black dark:md:hover:text-black
         inline-flex items-center justify-center font-medium bg-transparent border rounded-2xl transition-colors ${style}`}
         onClick={click}

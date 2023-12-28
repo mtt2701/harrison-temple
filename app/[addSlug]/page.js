@@ -13,7 +13,7 @@ export default async function Page({params}) {
     return (
         <Container>
             <div className="mx-auto max-w-prose space-y-8 py-8 ">
-                <article className="prose md:prose-xl prose-primary mx-auto text-black dark:text-white">
+                <article className="prose md:prose-xl prose-primary mx-auto px-8 text-black dark:text-white">
                     <PortableText value={postStuff.content} components={portableTextComponents} />
                 </article>
             </div>
@@ -31,7 +31,7 @@ export default async function Page({params}) {
 function checkUndefTop(stuff) {
   if (typeof stuff!=="undefined") {
     return (
-      <LinkButton title={stuff.title} target={stuff.target}/>
+      <LinkButton title={stuff.title} current={stuff.current} target={stuff.target}/>
     )
   }
 }
@@ -40,7 +40,7 @@ function checkUndefBut(stuffs) {
   if (typeof stuffs!=="undefined") {
     return (
       stuffs.map((stuff)=> (
-        <LinkButton key={Math.random()} title={stuff.title} target={stuff.target}/>
+        <LinkButton key={Math.random()} title={stuff.title} current={stuff.current} target={stuff.target}/>
         ))
     )
   }
