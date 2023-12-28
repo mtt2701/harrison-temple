@@ -70,7 +70,6 @@ function ImageComponent({ value }) {
   }
 
 async function getStuff(thisSlug) {
-    // mysterious: only "new" queries fetch new stuff
     const query = `*[_type=="blogPost" && $thisSlug==slug.current] {
         title,
         "slug":slug.current,
@@ -81,7 +80,6 @@ async function getStuff(thisSlug) {
 }
 
 async function getTop(thisSlug) {
-  // mysterious: only "new" queries fetch new stuff
   const query = `*[_type=="choice" && current==$thisSlug && top] {
   title,
     current,
@@ -92,7 +90,6 @@ async function getTop(thisSlug) {
 }
 
 async function getBut(thisSlug) {
-  // mysterious: only "new" queries fetch new stuff
   const query = `*[_type=="choice" && current==$thisSlug && !top] {
   title,
     current,

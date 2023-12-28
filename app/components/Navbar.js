@@ -20,8 +20,7 @@ export default function Home() {
           </ModeButton>
           </div>
           <div className="mx-auto">
-          <Link href="/" className="font-bold text-xl md:text-4xl ">
-            {/*  fixed left-1/2 -translate-x-1/2  max-w-7xl  style="ml-auto"*/}
+          <Link href="/" className="font-bold text-xl md:text-4xl">
             HARRISON TEMPLE
           </Link>
           </div>

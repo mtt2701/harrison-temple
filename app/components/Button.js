@@ -6,10 +6,10 @@ export function ModeButton({ children, style}) {
       <DefaultButton style={`md:px-3 px-2 md:py-1.5 py-1 md:text-2xl text-sm ${style}`}
       click={function(){if (document.documentElement.classList.contains('dark')) {
         document.documentElement.classList.remove('dark');
-        localStorage.setItem('color-theme', 'light');
+        localStorage.setItem('theme', 'light');
     } else {
         document.documentElement.classList.add('dark');
-        localStorage.setItem('color-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
     }}}>
         {children}
       </DefaultButton>
@@ -19,19 +19,17 @@ export function ModeButton({ children, style}) {
 export function LinkButton({title, current, target, style}) {
     if (current==="shi")
     return (
-      <Link href={`${target}`} passHref>
-      <BadButton style={`md:px-10 px-8 md:py-5 py-4 md:text-2xl text-md w-full h-12 md:h-20 ${style}`}>
+      <BadButton style={`md:px-10 px-8 md:py-5 py-4 md:text-2xl text-md w-full h-12 md:h-20 ${style}`}
+      click={function(){window.location.href=`${target}`}}>
         {title}
       </BadButton>
-    </Link>
   )
   else
     return (
-      <Link href={`${target}`} passHref>
-          <DefaultButton style={`md:px-10 px-8 md:py-5 py-4 md:text-2xl text-md w-full h-12 md:h-20 ${style}`}>
+      <DefaultButton style={`md:px-10 px-8 md:py-5 py-4 md:text-2xl text-md w-full h-12 md:h-20 ${style}`}
+          click={function(){window.location.href=`${target}`}}>
             {title}
-          </DefaultButton>
-      </Link>
+      </DefaultButton>
     );
 }
 
@@ -40,7 +38,7 @@ function DefaultButton({children, style, click}) {
       <button
         className={`bg-white border-black text-black md:hover:bg-black md:hover:border-white md:hover:text-white
         dark:bg-black dark:border-white dark:text-white dark:md:hover:bg-white dark:md:hover:border-black dark:md:hover:text-black
-        inline-flex items-center justify-center font-medium bg-transparent border rounded-2xl transition-colors ${style}`}
+        inline-flex items-center justify-center font-medium bg-transparent border rounded-lg md:rounded-2xl transition-colors ${style}`}
         onClick={click}
       >
         {children}
@@ -53,7 +51,7 @@ function DefaultButton({children, style, click}) {
       <button
         className={`bg-white border-black text-white md:hover:bg-black md:hover:border-white md:hover:text-black
         dark:bg-black dark:border-white dark:text-white dark:md:hover:bg-white dark:md:hover:border-black dark:md:hover:text-black
-        inline-flex items-center justify-center font-medium bg-transparent border rounded-2xl transition-colors ${style}`}
+        inline-flex items-center justify-center font-medium bg-transparent border rounded-lg md:rounded-2xl transition-colors ${style}`}
         onClick={click}
       >
         {children}
