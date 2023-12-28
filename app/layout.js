@@ -1,6 +1,7 @@
 import './globals.css'
 import { UnifrakturCook} from 'next/font/google'
 import Navbar from "./components/Navbar"
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = UnifrakturCook({ subsets: ['latin'], weight: "700" })
 
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
       <body className={`min-h-screen bg-white dark:bg-black ${inter.className}`}>
         <Navbar />
         {children}
+        <Analytics/>
       </body>
     </html>
   )
