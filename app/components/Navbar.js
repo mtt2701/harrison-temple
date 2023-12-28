@@ -1,7 +1,7 @@
 "use client";
 import {usePathname} from "next/navigation"
 import Link from "next/link";
-import { FilledButton } from "./Button";
+import { ModeButton } from "./Button";
 
 export default function Home() {
     const pathname=usePathname();
@@ -22,9 +22,9 @@ export default function Home() {
           </Link>
           </div>
           <div >
-          <FilledButton>
+          <ModeButton>
             H
-          </FilledButton>
+          </ModeButton>
           </div>
         </div>
       </nav>

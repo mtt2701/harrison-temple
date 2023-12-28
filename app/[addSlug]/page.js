@@ -4,8 +4,7 @@ import { PortableText } from "@portabletext/react";
 import { urlForImage } from "@/sanity/lib/image";
 import {tryGetImageDimensions} from "@sanity/asset-utils"
 import Image from "next/image";
-import LargeButton from "@/app/components/LargeButton"
-import Link from "next/link";
+import { LinkButton } from "../components/Button";
 
 export default async function Page({params}) {
     const postStuff = await getStuff(params.addSlug)
@@ -14,47 +13,35 @@ export default async function Page({params}) {
     return (
         <Container>
             <div className="mx-auto max-w-prose space-y-8 py-8 ">
-                <article className="prose md:prose-md prose-primary mx-auto text-black dark:text-white">
+                <article className="prose md:prose-xl prose-primary mx-auto text-black dark:text-white">
                     <PortableText value={postStuff.content} components={portableTextComponents} />
                 </article>
             </div>
-            <div className="flex justify-center py-8 max-w-7xl px-4 mx-auto">
-              {checkUndefined(top)}
+            <div className="w-full px-4 md:w-1/2 mx-auto">
+              {checkUndefTop(top)}
             </div>
-            <div className="py-8 max-w-7xl px-4 mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {checkUndef2(but)}
-            </div>
-        </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4 px-4 mx-auto">
+                {checkUndefBut(but)}
+              </div>
         </Container>
         
     )
 }
 
-function checkUndefined(top) {
-  if (typeof top!=="undefined") {
+function checkUndefTop(stuff) {
+  if (typeof stuff!=="undefined") {
     return (
-      <Link href={`${top.target}`} passHref className="space-y-4">
-          <LargeButton>
-          {top.title}
-        </LargeButton>
-        </Link>
+      <LinkButton title={stuff.title} target={stuff.target}/>
     )
   }
 }
 
-function checkUndef2(stuffs) {
+function checkUndefBut(stuffs) {
   if (typeof stuffs!=="undefined") {
     return (
       stuffs.map((stuff)=> (
-        <Link href={`${stuff.target}`} passHref className="flex items-center justify-center">
-        <LargeButton>
-          {stuff.title}
-        </LargeButton>
-        </Link>
-        
+        <LinkButton key={Math.random()} title={stuff.title} target={stuff.target}/>
         ))
-      
     )
   }
 }
@@ -74,7 +61,7 @@ function ImageComponent({ value }) {
         width={width}
         height={height}
         loading="lazy"
-        className="mx-auto md:max-w-prose rounded-lg"
+        className="mx-auto rounded-lg"
         style={{
           aspectRatio: width / height,
         }}
