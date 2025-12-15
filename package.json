@@ -10,14 +10,14 @@
   },
   "dependencies": {
     "@sanity/image-url": "^1.0.2",
-    "@sanity/ui": "^1.9.3",
-    "@sanity/vision": "^3.23.1",
+    "@sanity/ui": "^3.1.11",
+    "@sanity/vision": "^4.21.1",
     "@vercel/analytics": "^1.1.1",
     "next": "14.2.35",
-    "next-sanity": "^5.5.11",
+    "next-sanity": "^11.6.10",
     "react": "^18",
     "react-dom": "^18",
-    "sanity": "^3.99.0",
+    "sanity": "^4.21.1",
     "styled-components": "^6.1.1"
   },
   "devDependencies": {
